@@ -56,7 +56,7 @@ public class User_API extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Map paras = getParasMap(request);
+		Map<String, String> paras = getParasMap(request);
 		String output = userObj.updateUserDetails(paras.get("hidUserIDSave").toString(),
 				paras.get("User_Name").toString(),
 				paras.get("U_NIC").toString(), 
@@ -72,12 +72,12 @@ public class User_API extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Map paras = getParasMap(request);
+		Map<String, String> paras = getParasMap(request);
 		 String output = userObj.deleteUsers(paras.get("User_ID").toString());
 		response.getWriter().write(output);
 	}
 	
-	private static Map getParasMap(HttpServletRequest request) {
+	private static Map<String, String> getParasMap(HttpServletRequest request) {
 		Map<String, String> map = new HashMap<String, String>();
 		try {
 			Scanner scanner = new Scanner(request.getInputStream(), "UTF-8");
