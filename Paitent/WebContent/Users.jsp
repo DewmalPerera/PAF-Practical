@@ -19,7 +19,7 @@
 </head>
 <body>
 <h1>User Management</h1>
-	<form id="formUser" name="formUser" method="post" action="Users.jsp">
+	<form id="formUser" name="formUser">
 		User Name: 
 		<input id="User_Name" name="User_Name" type="text" class="form-control form-control-sm" required> <br>
 		User NIC:
@@ -38,18 +38,16 @@
 	</form>
 	<br>
 	<div id = "alertSuccess" class="alert alert-success">
-		<%
-			out.print(session.getAttribute("statusMsg"));
-		%>
-
 	</div>
 	<br>
 	<div id="alertError" class="alert alert-danger"></div>
 	<br>
+	<div id = "divUsersGrid">
 	<%
 		Users userObj = new Users();
 	out.print(userObj.readUsers());
 	%>
+	</div>
 	
 
 </body>
