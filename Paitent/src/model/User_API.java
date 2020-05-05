@@ -62,7 +62,7 @@ public class User_API extends HttpServlet {
 				paras.get("U_NIC").toString(), 
 				paras.get("U_Age").toString(), 
 				paras.get("U_Contact_Number").toString(), 
-				paras.get("U_Email").toString(), 
+				paras.get("U_Email").toString().replace("%40", "@"), 
 				paras.get("U_Address").toString());
 		response.getWriter().write(output);
 	}

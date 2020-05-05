@@ -80,7 +80,7 @@ public String readUsers() {
 		
 		// Prepare the html table to be displayed
 		
-		output = "<table border=\"1\"><tr><th>User ID</th><th>User Name</th><th>NIC</th><th>Age</th><th>Contact Number</th><th>Email</th><th>Address</th><th>Update</th><th>Remove</th></tr>";
+		output = "<table border=\'1\'><tr><th>User ID</th><th>User Name</th><th>NIC</th><th>Age</th><th>Contact Number</th><th>Email</th><th>Address</th></tr>";
 		String query = "select * from user";
 		Statement stmt = (Statement) con.createStatement();
 		
@@ -100,7 +100,8 @@ public String readUsers() {
 			// Add into the html table
 //			output += "<tr><td><input id=\"hidUserIDUpdate\"name=\"hidUserIDUpdate\"type=\"hidden\" value=\""
 //					+ User_ID + "\">" + User_ID + "</td>";
-			output += "<tr><td><input id='hidUserIDUpdate' name='hidUserIDUpdate' type='hidden' value='" + User_ID + "'>" + User_ID + "</td>";	
+			
+			output += "<tr><td><input id='hidUserIDUpdate' name='hidUserIDUpdate' type='hidden' value='" + User_ID + "'>" +User_ID + "</td>";	
 			output += "<td>" +User_Name+ "</td>";
 			output += "<td>" +U_NIC+ "</td>";
 			output += "<td>" +  U_Age + "</td>";
@@ -113,8 +114,7 @@ public String readUsers() {
 //			output += "<td><input name=\"btnUpdate\"type=\"button\" value=\"Update\"class=\" btnUpdate btn btn-secondary\"></td><td><form method=\"post\" action=\"Users.jsp\"><input name=\"btnRemove\" type=\"submit\"value=\"Delete\" class=\"btn btn-danger\"><input name=\"hidUserIDDelete\" type=\"hidden\"value=\""
 //					+ User_ID + "\">" + "</form></td></tr>";
 			
-			output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
-					+ "<td><input name='btnRemove' type='button' value='Delete' class='btnRemove btn btn-danger' data-userid='"
+			output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td><td><input name='btnRemove' type='button' value='Delete' class='btnRemove btn btn-danger' data-userid='"
 					 + User_ID + "'>" + "</td></tr>";
 		}
 		con.close();
@@ -152,7 +152,7 @@ public String updateUserDetails(String User_ID, String User_Name,String U_NIC, S
 		//output = "Updated successfully";
 		
 		String newUsers = readUsers();
-		 output = "{\"status\":\"success\", \"data\": \"" +newUsers + "\"}";
+		output = "{\"status\":\"success\", \"data\": \"" +newUsers + "\"}";
 		
 	} catch (Exception e) {
 		//output = "Error while updating the user.";
